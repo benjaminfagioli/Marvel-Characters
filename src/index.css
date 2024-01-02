@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #222222 !important;
+  position: relative;
+}
+#mainContainer{
+  padding: 120px 0 350px;
+  min-height: 100vh;
+}
+.active>.page-link, .page-link.active {
+  background-color: #5f5f5f !important;
+  border-color:  #5f5f5f !important;
+}
+.disabled>.page-link, .page-link.disabled {
+  background-color: #141414 !important;
+  color: #3c3c3c !important;
+  border-color:  #5f5f5f !important;
+}
+.page-link {
+  background-color: #ffffff2f !important;
+  color: #d5d5d5 !important;
+  border-color:  #5f5f5f !important;
+}
+.page-link:hover {
+  background-color: #3c3c3c !important;
+}
+.page-item{
+  margin:0 4px;
+}
+.row{
+  margin: 0 !important;
+}
+footer{
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  background: url('./assets/marvel_footer-bg.webp');
+  background-size: cover;
+  background-position: top;
+  & h5{
+    word-break: break-all;
+  }
+  & a{
+    color: gray;
+  }
+  & img{
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+#errorDialog{
+  max-height: 400px;
+  overflow: hidden;
+  opacity: .5;
+  #rain{
+    position: absolute;
+    opacity: .1;
+  }
+
+}
+#pagination{
+  font-family: 'Inter', sans-serif;
+}
+#characterTitle{
+  font-family: 'Nunito', sans-serif;
+}
+#characterDescription{
+  font-family: 'Inter', sans-serif;
+  font-weight:100;
+  text-wrap: pretty;
+}
+
+
+
+
+
+
+@media screen and (width>=768px) {
+  #mainContainer{
+    padding-bottom: 150px;
+  }
+}
+@media screen and (width>=992px) {
+  footer{
+    max-height: 200px;
+  }
+  #mainContainer{
+    padding-bottom: 200px !important;
+  }
+}
