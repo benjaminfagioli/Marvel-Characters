@@ -6,8 +6,8 @@ const MyFooter = () => {
     <footer>
       <Container>
 
-      <Row className='align-items-center mt-3'>
-        <Col className='text-center mt-4 mb-3 my-md-0' md={9}>
+      <Row className='align-items-center'>
+        <Col className='text-center mt-4 pt-2 mb-3 my-md-0' md={9}>
           <div>
             <h3>Page running with:</h3>
             <h5><a target='_blank' href="https://developer.marvel.com">© https://developer.marvel.com ©</a></h5>
