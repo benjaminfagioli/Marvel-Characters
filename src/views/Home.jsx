@@ -6,6 +6,7 @@ import Searcher from '../components/Searcher/Searcher'
 import MyPagination from '../components/MyPagination/MyPagination'
 import Loader from '../components/Loader/Loader'
 import { getData } from '../helpers/getData'
+import ParticlesBackground from '../components/ParticlesBackground/ParticlesBackground'
 
 const key = import.meta.env.VITE_MY_KEY
 const URL_BASE = import.meta.env.VITE_URL_BASE
@@ -20,6 +21,7 @@ function Home() {
   
   return (
     <>
+    <ParticlesBackground/>
     <div className='d-flex justify-content-center'>
       <Searcher params={params} setParams={setParams}/>
     </div>

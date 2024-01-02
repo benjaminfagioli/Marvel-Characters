@@ -6,10 +6,11 @@
   padding: 0;
 }
 body{
-  background-color: #222222 !important;
+  /* background-color: #222222 !important; */
   position: relative;
 }
 #mainContainer{
+  z-index: 100;
   padding: 120px 0 350px;
   min-height: 100vh;
 }
@@ -71,6 +72,7 @@ footer{
   font-family: 'Inter', sans-serif;
 }
 #characterTitle{
+  z-index: 100;
   font-family: 'Nunito', sans-serif;
 }
 #characterDescription{

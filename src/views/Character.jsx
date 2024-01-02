@@ -3,6 +3,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
 import ErrorDialog from '../components/ErrorDialog/ErrorDialog'
+import ParticlesBackground from '../components/ParticlesBackground/ParticlesBackground'
 const key = import.meta.env.VITE_MY_KEY
 const URL_BASE = import.meta.env.VITE_URL_BASE
 
@@ -25,23 +26,24 @@ const Character = () => {
   },[])
   return (
     <Container className='text-light my-2 my-md-4'>
+      <ParticlesBackground/>
       {character
       ?
-      <>
-        <h1 id='characterTitle'>{character.name}</h1>
-        <Row className='align-items-center p-0'>
-          <Col className='p-0' lg={5}>
-            <img height={'500px'} width={'100%'} src={character.thumbnail.path+'.' +character.thumbnail.extension} alt="" className='mb-3 object-fit-cover'/>
-          </Col>
-          <Col lg={7}>
-            {character.description != '' && character.description!= ' '
-            ? <p id='characterDescription' className='px-md-3 fs-3'>{character.description}</p>
-            : 
-              <ErrorDialog/>
-            }
-          </Col>
-        </Row>
-      </>
+        <>
+          <h1 className='z-4 position-relative' id='characterTitle'>{character.name}</h1>
+          <Row className='align-items-center p-0'>
+            <Col className='p-0' lg={5}>
+              <img height={'500px'} width={'100%'} src={character.thumbnail.path+'.' +character.thumbnail.extension} alt="" className='mb-3 object-fit-cover z-4 position-relative'/>
+            </Col>
+            <Col lg={7}>
+              {character.description != '' && character.description!= ' '
+              ? <p id='characterDescription' className='px-md-3 fs-3 z-4 position-relative'>{character.description}</p>
+              : 
+                <ErrorDialog/>
+              }
+            </Col>
+          </Row>
+        </>
       :
         <Loader/>
       }
