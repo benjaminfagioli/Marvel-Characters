@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
 import ErrorDialog from '../components/ErrorDialog/ErrorDialog'
 import ParticlesBackground from '../components/ParticlesBackground/ParticlesBackground'
+import Badges from '../components/Badges/Badges'
 const key = import.meta.env.VITE_MY_KEY
 const URL_BASE = import.meta.env.VITE_URL_BASE
 
@@ -41,6 +42,16 @@ const Character = () => {
               : 
                 <ErrorDialog/>
               }
+            </Col>
+          </Row>
+          <Row>
+            <Col id='badgesContainer' sm={12} lg={4}>
+              <Badges info={"comics"} number={character.comics.available} />
+              <Badges info={"series"} number={character.series.available} />
+              <Badges info={"stories"} number={character.stories.available} />
+            </Col>
+            <Col id='comicsInfo' className='z-1 d-none' sm={12} lg={9}>
+
             </Col>
           </Row>
         </>
