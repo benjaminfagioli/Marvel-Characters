@@ -87,6 +87,7 @@ footer{
   display: flex;
   gap: 10px;
   justify-content: center;
+  align-items: start;
   flex-wrap: wrap;
   & span{
     font-family: 'Inter', sans-serif;
@@ -106,9 +107,30 @@ footer{
   }
 }
 #comicsInfo{
-  background-color: #3d3d3d95 ;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 1;
+  padding: 0;
 }
-
+.imgGrids{
+  width: 28%;
+  aspect-ratio: 1 !important;
+  height: 28%;
+  object-fit: cover;
+  display: inline;
+  margin: 6px;
+}
+#line{
+  flex-grow: 1;
+  background: #f4f4f4;
+  z-index: 1;
+  height: 1px;
+}
+#comicsGrid{
+  width: 100%;
+  background-color: #1f1f1fc8;
+  border-radius: 5px;
+}
 
 @media screen and (width>=768px) {
   #mainContainer{
@@ -125,6 +147,9 @@ footer{
   #badgesContainer {
     max-width: fit-content ;
     justify-content: start;
+  }
+  #comicsGrid{
+    width: 32%;
   }
 }
 html{

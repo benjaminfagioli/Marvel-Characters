@@ -5,6 +5,7 @@ import Loader from '../components/Loader/Loader'
 import ErrorDialog from '../components/ErrorDialog/ErrorDialog'
 import ParticlesBackground from '../components/ParticlesBackground/ParticlesBackground'
 import Badges from '../components/Badges/Badges'
+import ComicsGrid from '../components/ComicsGrid/ComicsGrid'
 const key = import.meta.env.VITE_MY_KEY
 const URL_BASE = import.meta.env.VITE_URL_BASE
 
@@ -44,15 +45,20 @@ const Character = () => {
               }
             </Col>
           </Row>
-          <Row>
+          <Row className='justify-content-between'>
             <Col id='badgesContainer' sm={12} lg={4}>
               <Badges info={"comics"} number={character.comics.available} />
               <Badges info={"series"} number={character.series.available} />
               <Badges info={"stories"} number={character.stories.available} />
             </Col>
-            <Col id='comicsInfo' className='z-1 d-none' sm={12} lg={9}>
-
+            <Col className='d-flex align-items-center flex-grow-1 ps-lg-5 ' sm={12} lg={9}>
+              <div id="line"></div>
             </Col>
+            <Row id='comicsInfo' lg={12}>
+              <ComicsGrid info={character.comics} string={"Comics"}/>
+              <ComicsGrid info={character.series}string={"Series"}/>
+              <ComicsGrid info={character.stories}string={"Stories"}/>
+            </Row>
           </Row>
         </>
       :
