@@ -6,7 +6,7 @@ import Home from './views/Home';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import routes from '../routes';
 import RootLayout from './components/RootLayout/RootLayout';
-
+import  'bootstrap-icons/font/bootstrap-icons.css'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout/> }>

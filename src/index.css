@@ -127,9 +127,29 @@ footer{
   height: 1px;
 }
 #comicsGrid{
+  position: relative;
+  min-height: 320px;
+  display: flex;
   width: 100%;
+  aspect-ratio: 1 / 1 !important;
   background-color: #1f1f1fc8;
-  border-radius: 5px;
+  border-radius: 5px; 
+  & button:first-child{
+    background-color: #212121cc;
+    border-radius: 3px;
+    border: none;
+    position: absolute;
+    top: 42%;
+    left: 3px;
+  }
+  & button:nth-last-child(2){
+    background-color: #212121cc;
+    border-radius: 3px;
+    border: none;
+    position: absolute;
+    top: 42%;
+    right:  3px;
+  }
 }
 
 @media screen and (width>=768px) {
