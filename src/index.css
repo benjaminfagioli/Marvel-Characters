@@ -116,7 +116,7 @@ footer{
   width: 28%;
   aspect-ratio: 1 !important;
   height: 28%;
-  object-fit: cover;
+  object-fit: fill;
   display: inline;
   margin: 6px;
 }
@@ -131,9 +131,15 @@ footer{
   min-height: 320px;
   display: flex;
   width: 100%;
-  aspect-ratio: 1 / 1 !important;
+  aspect-ratio: 1 / 1.15;
+  /* aspect-ratio: 1 / 1.5 !important; */
   background-color: #1f1f1fc8;
+  align-content: start;
   border-radius: 5px; 
+  & h5{
+    bottom: 2%;
+    height: fit-content;
+  }
   & button:first-child{
     background-color: #212121cc;
     border-radius: 3px;
@@ -170,6 +176,15 @@ footer{
   }
   #comicsGrid{
     width: 32%;
+  }
+}
+
+@media screen and (width<=299px) {
+  .imgGrids{
+    width: 26%;
+  }
+  #comicsGrid{
+    min-height: 250px;
   }
 }
 html{
