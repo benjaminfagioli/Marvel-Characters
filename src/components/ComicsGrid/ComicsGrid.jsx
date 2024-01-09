@@ -13,7 +13,7 @@ const ComicsGrid = ({info, string}) => {
   },[])
   return (
     <>
-    <Col id='comicsGrid' sm={12} className='d-flex justify-content-evenly p-sm-3 p-lg-4 pt-3 pb-lg-0 my-2'>
+    <Col id='comicsGrid' sm={12} className='d-flex justify-content-evenly p-sm-3 p-lg-3 py-3 my-2'>
       {string1.length > 1?
       <>
       {/* <div id={string}> */}
@@ -33,11 +33,11 @@ const ComicsGrid = ({info, string}) => {
 
             {string1.map(item => 
               <div className='w-100 my-2' key={item.id}>
-              <span className='fs-4'>{item.title}</span>
+              <span className='fs-5'>{item.title}</span>
               {item.creators.items.map(creator=>
               <>
-                <span className='text-white-50'> - {creator.name} </span> 
-                <span className='fw-light text-white-50'>[{creator.role}]</span>
+                <span className='fs-6 text-white-50'> - {creator.name} </span> 
+                <span className='fs-6 fw-light text-white-50'>[{creator.role}]</span>
               </> 
               )}
             </div>)}
@@ -50,7 +50,7 @@ const ComicsGrid = ({info, string}) => {
       :
       <h5 className='d-none fw-bold'>Cargando...</h5>
       }
-      <h5 className='pb-0 pb-lg-1  w-100 text-center position-sticky bottom-0'>{string}</h5>
+      <h5 className='pb-0 pb-lg-1  w-100 text-center nameInfo'>{string}</h5>
     </Col>
     </>
   )

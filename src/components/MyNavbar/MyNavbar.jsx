@@ -15,7 +15,7 @@ const MyNavbar = () => {
               navigate('/')
               setParams({})
             }}><li>Home</li></a>
-            <li>Contact us</li>
+            {/* <li>Contact us</li> */}
           </ul>
         </div>
       </nav>

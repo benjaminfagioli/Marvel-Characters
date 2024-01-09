@@ -120,6 +120,7 @@ footer{
   object-fit: fill;
   display: inline;
   margin: 6px;
+
 }
 #line{
   flex-grow: 1;
@@ -137,13 +138,14 @@ footer{
   flex-wrap: wrap;
 }
 #comicsGrid{
+  outline: .1px solid rgb(24, 24, 24);
+  outline-offset: 3px;
   font-family: 'Inter', 'Comic Sans';
-
   display: block;
   position: relative;
-  min-height: 400px;
+  /* min-height: 400px; */
   display: flex;
-
+  
   flex-direction: column;
   width: 100%;
   aspect-ratio: 1 / 1.15;
@@ -154,13 +156,25 @@ footer{
               -0px -0px 12px -1px #242424c8;
   align-content: start;
   border-radius: 5px; 
+  max-height: fit-content !important;
   & h5{
     height: 60px;
     display:grid;
     place-content: center;
-    backdrop-filter: blur(2px);
+
     bottom: 0%;
-    /* height: fit-content; */
+    margin: 0;
+    backdrop-filter: blur(2px);
+    background-color: #141414b3;
+    padding: 15px !important;
+    position: absolute;
+    /* width: calc(99% - 2px) !important; */
+    border-bottom-left-radius: 5px;
+    left: 0;
+    z-index: 10;
+    transition: .2s;
+    transition-delay: .2s;
+    border-bottom-right-radius: 5px;
   }
   & button:first-child{
     z-index: 10;
@@ -168,8 +182,8 @@ footer{
     border-radius: 3px;
     border: none;
     position: absolute;
-    top: 42%;
-    left: 3px;
+    top: 50%;
+    left: 0;
   }
   & button:nth-last-child(2){
     z-index: 10;
@@ -177,32 +191,70 @@ footer{
     border-radius: 3px;
     border: none;
     position: absolute;
-    top: 42%;
-    right:  3px;
+    top: 50%;
+    right: 0;
   }
 
 }
 #comicsGrid:nth-child(3){
-  overflow: auto;
+  overflow: hidden;
   padding: 0 !important;
-  flex-wrap: wrap;
-  flex-direction: row !important;
+  flex-wrap: nowrap;
+  flex-direction: column !important;
+  height: fit-content !important;
+
   & button{
     display: none;
   }
   & h5{
     margin: 0;
-    background-color: #1414149c;
-    height: 75px !important;
+    backdrop-filter: blur(2px);
+    background-color: #141414df;
+    padding: 15px !important;
+    position: absolute;
+    /* width: calc(99% - 2px) !important; */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 }
 .storiesContainer{
+  height: fit-content;
+  /* flex-grow: 1; */
+  /* height: 130%; */
+  overflow: auto;
   padding: 15px 30px;
+  padding-bottom: 65px;
+  border-radius: 5px !important;
 }
-
+*:first-child:hover > .nameInfo {
+  background-color: #0b0b0b !important;
+  transform: translateY(80%);
+  box-shadow:  0px 0px 12px -1px #1a1a1ac8,
+  -0px -0px 12px -1px #242424c8;
+}
+*:nth-child(2):hover > .nameInfo {
+  background-color: #0b0b0b !important;
+  transform: translateY(80%);
+  box-shadow:  0px 0px 12px -1px #1a1a1ac8,
+  -0px -0px 12px -1px #242424c8;
+}
+@keyframes moveDown {
+  to{
+    background-color: #0b0b0b !important;
+    transform: translateY(80%);
+    box-shadow:  0px 0px 12px -1px #1a1a1ac8,
+    -0px -0px 12px -1px #242424c8;
+  }
+}
 @media screen and (width>=768px) {
   #mainContainer{
     padding-bottom: 150px;
+  }
+  #comicsGrid{
+    width: 49%;
+  }
+  #comicsGrid:nth-child(3){
+    width: 100%;
   }
 }
 @media screen and (width>=992px) {
@@ -217,8 +269,9 @@ footer{
     justify-content: start;
   }
   #comicsGrid{
-    width: 32.6%;
+    width: 32.6% !important;
   }
+
 }
 
 @media screen and (width<=299px) {
@@ -245,6 +298,13 @@ html{
   max-width: 10px;
 
 }
-#comicsGrid::-webkit-scrollbar{
-  border-radius: 5px;
+.storiesContainer::-webkit-scrollbar-thumb{
+  background-color: #212121;
+  border-radius: 0px;
+}
+.storiesContainer::-webkit-scrollbar{
+  /* border-radius: 10px; */
+  /* display: block; */
+  width: 6px;
+  z-index: 100;
 }

@@ -5,7 +5,7 @@ const getCollectionURI = async (info, string, setstring1)=>{
   let aux= []
   if (string !== 'Stories') {
     try {
-      const data = await fetch(`${info.collectionURI}${key}&limit=50`)
+      const data = await fetch(`${info.collectionURI}${key}&limit=45`)
       const results = await data.json()
       results.data.results.forEach(result => {
         result.thumbnail?.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" && aux.push(result)
