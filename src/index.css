@@ -108,14 +108,15 @@ footer{
 }
 #comicsInfo{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-bottom: 100px;
   z-index: 1;
   padding: 0;
 }
 .imgGrids{
   width: 28%;
-  aspect-ratio: 1 !important;
-  height: 28%;
+  aspect-ratio: 1 / 1;
+  height: 30%;
   object-fit: fill;
   display: inline;
   margin: 6px;
@@ -126,10 +127,24 @@ footer{
   z-index: 1;
   height: 1px;
 }
-#comicsGrid{
-  position: relative;
-  min-height: 320px;
+.imgContainer{
+  flex-grow: 1;
   display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  z-index: 1;
+  padding: 0;
+  flex-wrap: wrap;
+}
+#comicsGrid{
+  font-family: 'Inter', 'Comic Sans';
+
+  display: block;
+  position: relative;
+  min-height: 400px;
+  display: flex;
+
+  flex-direction: column;
   width: 100%;
   aspect-ratio: 1 / 1.15;
   /* aspect-ratio: 1 / 1.5 !important; */
@@ -137,11 +152,17 @@ footer{
   align-content: start;
   border-radius: 5px; 
   & h5{
-    bottom: 2%;
-    height: fit-content;
+    height: 60px;
+    display:grid;
+    place-content: center;
+
+    backdrop-filter: blur(2px);
+    bottom: 0%;
+    /* height: fit-content; */
   }
   & button:first-child{
-    background-color: #212121cc;
+    z-index: 10;
+    background-color: #21212100;
     border-radius: 3px;
     border: none;
     position: absolute;
@@ -149,12 +170,24 @@ footer{
     left: 3px;
   }
   & button:nth-last-child(2){
-    background-color: #212121cc;
+    z-index: 10;
+    background-color: #21212100;
     border-radius: 3px;
     border: none;
     position: absolute;
     top: 42%;
     right:  3px;
+  }
+}
+#comicsGrid:nth-child(3){
+  overflow: auto;
+  flex-wrap: wrap;
+  flex-direction: row !important;
+  & button{
+    display: none;
+  }
+  & h5{
+    height: 75px !important;
   }
 }
 
@@ -175,7 +208,7 @@ footer{
     justify-content: start;
   }
   #comicsGrid{
-    width: 32%;
+    width: 32.6%;
   }
 }
 
@@ -190,14 +223,14 @@ footer{
 html{
   scrollbar-gutter: stable;
 }
-html::-webkit-scrollbar-thumb{
+*::-webkit-scrollbar-thumb{
   background-color: #212121;
   border-radius: 10px;
 }
-html::-webkit-scrollbar-thumb:hover{
+*::-webkit-scrollbar-thumb:hover{
   background-color: #323232;
 }
-html::-webkit-scrollbar{
+*::-webkit-scrollbar{
   background: #141414;
   width: 2vh;
   max-width: 10px;

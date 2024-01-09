@@ -1,48 +1,54 @@
 import React, { useEffect, useState } from 'react'
 import Loader from '../Loader/Loader'
-import { Col } from 'react-bootstrap'
-const key = import.meta.env.VITE_MY_KEY
-const URL_BASE = import.meta.env.VITE_URL_BASE
+import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import getCollectionURI from '../../helpers/getCollectionURI'
+
 
 const ComicsGrid = ({info, string}) => {
   const [string1, setstring1] = useState([])
   const [number, setnumber] = useState(0)
-  let colorbutton
-  console.log(string, info);
-  const getCollectionURI = async ()=>{
-    let aux= []
-    try {
-      const data = await fetch(`${info.collectionURI}${key}&limit=90`)
-      const results = await data.json()
-      results.data.results.forEach(result => result.thumbnail?.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" && aux.push(result))
-      // setstring1(results.data.results);
-    } catch (error) {
-      console.log(error.message);
-    } finally{
-      console.log(aux);
-      setstring1(aux)
-    }
-  }
+  // console.log(string, info);
   useEffect(()=>{
-    string != 'Stories' && getCollectionURI()
+    getCollectionURI(info, string, setstring1)
   },[])
   return (
     <>
-    <Col id='comicsGrid' sm={12} className='d-flex flex-wrap justify-content-evenly p-sm-3 p-lg-4 pt-3 pb-5 my-2'>
+    <Col id='comicsGrid' sm={12} className='d-flex justify-content-evenly p-sm-3 p-lg-4 pt-3 pb-lg-0 my-2'>
       {string1.length > 1?
       <>
       {/* <div id={string}> */}
+        <button onClick={()=>number !== 0 && setnumber(number-9)}><i className= {`bi bi-caret-left fs-2 p-2 p-md-1 ${(number !== 0) ?  'text-white' :  'text-secondary text-opacity-25'}`} ></i></button>
+        {string1[0].thumbnail 
+        ?
+        <div className="imgContainer">
 
-        <button onClick={()=>number !== 0 && setnumber(number-9)}><i class= {`bi bi-caret-left fs-3 ${(number !== 0) ?  'text-white' :  'text-secondary text-opacity-25'}`} ></i></button>
-          {string1.slice(number, number +9).map(item => <img className='imgGrids' title={item.title} alt={item.name} src={`${item?.thumbnail?.path}.${item?.thumbnail?.extension}`}/>)}
-        <button onClick={()=>(number+9< string1.length) && setnumber(number+9)}><i class={`bi bi-caret-right fs-3 ${(number+9< string1.length) ?  'text-white' :  'text-secondary text-opacity-25'}`}></i></button>
+          {string1.slice(number, number +9).map(item => 
+            <OverlayTrigger overlay={<Tooltip>{item.title}</Tooltip>}>
+            <img className='imgGrids' data-bs-toggle="tooltip"  data-bs-placement="top"  data-bs-title={item.title}  alt={item.name} src={`${item?.thumbnail?.path}.${item?.thumbnail?.extension}`}/>
+          </OverlayTrigger>
+          )}
+        </div>
+        :
+
+          string1.map(item => 
+          <div className='w-100 my-1'>
+            <span className='fs-4'>{item.title}</span>
+            {item.creators.items.map(creator=>
+            <>
+              <span className='text-white-50'> - {creator.name} </span> 
+              <span className='fw-light text-white-50'>[{creator.role}]</span>
+            </> 
+            )}
+          </div>)
+        }
+        <button onClick={()=>(number+9< string1.length) && setnumber(number+9)}><i className={`bi bi-caret-right fs-2 p-2 p-md-1 ${(number+9< string1.length) ?  'text-white' :  'text-secondary text-opacity-25'}`}></i></button>
       {/* </div> */}
       </>
       
       :
       <h5 className='d-none fw-bold'>Cargando...</h5>
       }
-      <h5 className='position-absolute pb-3 pb-lg-1'>{string}</h5>
+      <h5 className='pb-0 pb-lg-1  w-100 text-center position-sticky bottom-0'>{string}</h5>
     </Col>
     </>
   )
