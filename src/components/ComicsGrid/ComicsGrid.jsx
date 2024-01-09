@@ -23,23 +23,25 @@ const ComicsGrid = ({info, string}) => {
         <div className="imgContainer">
 
           {string1.slice(number, number +9).map(item => 
-            <OverlayTrigger overlay={<Tooltip>{item.title}</Tooltip>}>
+            <OverlayTrigger key={item.title} overlay={<Tooltip>{item.title}</Tooltip>}>
             <img className='imgGrids' data-bs-toggle="tooltip"  data-bs-placement="top"  data-bs-title={item.title}  alt={item.name} src={`${item?.thumbnail?.path}.${item?.thumbnail?.extension}`}/>
           </OverlayTrigger>
           )}
         </div>
         :
+          <div className="storiesContainer">
 
-          string1.map(item => 
-          <div className='w-100 my-1'>
-            <span className='fs-4'>{item.title}</span>
-            {item.creators.items.map(creator=>
-            <>
-              <span className='text-white-50'> - {creator.name} </span> 
-              <span className='fw-light text-white-50'>[{creator.role}]</span>
-            </> 
-            )}
-          </div>)
+            {string1.map(item => 
+              <div className='w-100 my-2' key={item.id}>
+              <span className='fs-4'>{item.title}</span>
+              {item.creators.items.map(creator=>
+              <>
+                <span className='text-white-50'> - {creator.name} </span> 
+                <span className='fw-light text-white-50'>[{creator.role}]</span>
+              </> 
+              )}
+            </div>)}
+          </div>
         }
         <button onClick={()=>(number+9< string1.length) && setnumber(number+9)}><i className={`bi bi-caret-right fs-2 p-2 p-md-1 ${(number+9< string1.length) ?  'text-white' :  'text-secondary text-opacity-25'}`}></i></button>
       {/* </div> */}

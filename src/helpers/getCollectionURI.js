@@ -18,7 +18,7 @@ const getCollectionURI = async (info, string, setstring1)=>{
     }
   } else{
     try {
-      const data = await fetch(`${info.collectionURI}${key}&limit=50`)
+      const data = await fetch(`${info.collectionURI}${key}&limit=40`)
       const results = await data.json()
       results.data.results.forEach(result => {
         aux.push(result)
@@ -26,7 +26,7 @@ const getCollectionURI = async (info, string, setstring1)=>{
     } catch (error) {
       console.log(error.message);
     } finally{
-      // console.log(aux);
+      console.log(aux);
       setstring1(aux)
     }
   }

@@ -155,7 +155,6 @@ footer{
     height: 60px;
     display:grid;
     place-content: center;
-
     backdrop-filter: blur(2px);
     bottom: 0%;
     /* height: fit-content; */
@@ -181,14 +180,20 @@ footer{
 }
 #comicsGrid:nth-child(3){
   overflow: auto;
+  padding: 0 !important;
   flex-wrap: wrap;
   flex-direction: row !important;
   & button{
     display: none;
   }
   & h5{
+    margin: 0;
+    background-color: #1414149c;
     height: 75px !important;
   }
+}
+.storiesContainer{
+  padding: 15px 30px;
 }
 
 @media screen and (width>=768px) {
