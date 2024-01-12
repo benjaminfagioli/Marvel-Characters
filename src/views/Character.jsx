@@ -10,6 +10,7 @@ import CharacterInfoSection from '../components/CharacterInfoSection/CharacterIn
 const Character = () => {
   const {id} = useParams()
   const [character, setCharacter] = useState(null)
+  if (character) document.title = character?.name
   
   useEffect(()=>{
     getSingleCharacter(setCharacter, id)

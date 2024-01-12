@@ -17,6 +17,7 @@ function Home() {
   let count = useRef()
   useEffect(()=>{
     getData(setLoading, params, URL_BASE, key, setCharacters, count)
+    document.title = 'Marvel - Home'
   },[params])
   
   return (

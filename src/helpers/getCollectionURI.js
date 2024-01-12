@@ -26,7 +26,7 @@ const getCollectionURI = async (info, string, setstring1)=>{
     } catch (error) {
       console.log(error.message);
     } finally{
-      console.log(aux);
+      // console.log(aux);
       setstring1(aux)
     }
   }

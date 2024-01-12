@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Loader from '../Loader/Loader'
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import getCollectionURI from '../../helpers/getCollectionURI'
+import { useNavigate } from 'react-router-dom'
 
 
 const ComicsGrid = ({info, string}) => {
   const [string1, setstring1] = useState([])
   const [number, setnumber] = useState(0)
+  const navigate = useNavigate()
   // console.log(string, info);
   useEffect(()=>{
     getCollectionURI(info, string, setstring1)
@@ -24,8 +26,8 @@ const ComicsGrid = ({info, string}) => {
 
           {string1.slice(number, number +9).map(item => 
             <OverlayTrigger key={item.title} overlay={<Tooltip>{item.title}</Tooltip>}>
-            <img className='imgGrids' data-bs-toggle="tooltip"  data-bs-placement="top"  data-bs-title={item.title}  alt={item.name} src={`${item?.thumbnail?.path}.${item?.thumbnail?.extension}`}/>
-          </OverlayTrigger>
+              <img className='imgGrids' data-bs-toggle="tooltip" onClick={()=>navigate(`/${string.toLowerCase()}/${item.id}`)}  data-bs-placement="top"  data-bs-title={item.title}  alt={item.name} src={`${item?.thumbnail?.path}.${item?.thumbnail?.extension}`}/>
+            </OverlayTrigger>
           )}
         </div>
         :

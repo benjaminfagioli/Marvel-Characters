@@ -8,7 +8,7 @@ const CharacterHeader = ({character}) => {
       <h1 className='z-4 position-relative' id='characterTitle'>{character.name}</h1>
       <Row className='align-items-center p-0'>
         <Col className='p-0' lg={5}>
-          <img height={'500px'} width={'100%'} src={character.thumbnail.path+'.' +character.thumbnail.extension} alt="" className='mb-3 object-fit-cover z-4 position-relative'/>
+          <img id='imgCharacterView' height={'500px'} width={'100%'} src={character.thumbnail.path+'.' +character.thumbnail.extension} alt="" className='mb-3 object-fit-cover z-4 position-relative'/>
         </Col>
         <Col lg={7}>
           {character.description != '' && character.description!= ' '

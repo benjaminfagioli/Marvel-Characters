@@ -1,6 +1,8 @@
 import Character from "./src/views/Character";
+import Comic from "./src/views/Comics";
 import Home from "./src/views/Home";
-import Test from "./src/views/Test";
+import Series from "./src/views/Series";
+
 const routes = [{
   Path:'/',
   Element: Home
@@ -8,8 +10,11 @@ const routes = [{
   Path:'/character/:id',
   Element:Character
 },{
-  Path:'/test',
-  Element:Test
+  Path:'/comics/:id',
+  Element: Comic
+},{
+  Path:'/series/:id',
+  Element: Series
 }
 ]
 export default routes
