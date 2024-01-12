@@ -249,6 +249,13 @@ footer{
 }
 #infoComic{
   padding-top: 620px;
+  font-family: 'Inter';
+  & span {
+    color: #ed171f;
+    text-shadow: 1px 0 1px rgba(255, 255, 255, 0.268), 1px 0 1px #ed171e92  ;
+    filter: contrast(20);
+  }
+
 }
 #headerComic{
   overflow: hidden;
@@ -264,6 +271,7 @@ footer{
   
 }
 #comicCoverContainer{
+  padding-left: 0;
   width: fit-content;
 }
 #comicCover{
@@ -295,18 +303,26 @@ footer{
     -0px -0px 12px -1px #242424c8;
   }
 }
-@media screen and (width<=900px) {
+@media screen and (width<=992px) {
   #headerComic{
-    min-height: 530px;
+    height: 60px;
+    align-content: space-between !important;
+  }
+  #headerComicContainer{
+    width: 100vw !important;
   }
   #infoComic{
-    padding-top: 540px;
+    padding-top: 695px;
+  }
+  #headerComicContainer{
+    margin-top: 10px;
   }
 }
 @media screen and (width>=992px) {
   #imgCharacterView{
     object-fit: fill !important;
   }
+  
 }
 @media screen and (width>=768px) {
   #mainContainer{
@@ -329,6 +345,8 @@ footer{
 }
 img.m-1 {
   cursor: pointer;
+  box-shadow: 0 0 20px 10px black;
+  border-radius: 2px;
 }
 @media screen and (width>=992px) {
   footer{
@@ -344,6 +362,7 @@ img.m-1 {
   #comicsGrid{
     width: 32.6% !important;
   }
+
 
 }
 @media screen and (min-width:1200px) {
