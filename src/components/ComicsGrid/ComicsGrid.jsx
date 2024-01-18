@@ -3,6 +3,7 @@ import Loader from '../Loader/Loader'
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import getCollectionURI from '../../helpers/getCollectionURI'
 import { useNavigate } from 'react-router-dom'
+import MySwiper from '../InfoGrid'
 
 
 const ComicsGrid = ({info, string}) => {
@@ -11,7 +12,7 @@ const ComicsGrid = ({info, string}) => {
   const navigate = useNavigate()
   // console.log(string, info);
   useEffect(()=>{
-    getCollectionURI(info, string, setstring1)
+    getCollectionURI(info, string, setstring1, 0)
   },[])
   return (
     <>

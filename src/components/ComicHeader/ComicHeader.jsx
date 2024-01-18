@@ -23,8 +23,8 @@ const ComicHeader = ({comic}) => {
             </>
             :
             <>
-              <p className='fs-6 mt-3 mb-1'>{comic.description}</p>
-              <p className='text-white-50'>Only for ${comic?.prices[0].price}</p>
+              <p className='fs-6 mt-3 mb-1 comic-description'>{comic.description}</p>
+              <p className='text-white-50'>Only for ${comic?.prices[0].price || 1.99}</p>
             </>
             }
           </Col>

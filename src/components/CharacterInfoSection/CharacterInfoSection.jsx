@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import ComicsGrid from '../ComicsGrid/ComicsGrid'
 import Badges from '../Badges/Badges'
+import MySwiper from '../InfoGrid'
 
 const CharacterInfoSection = ({character}) => {
   return (
@@ -15,8 +16,9 @@ const CharacterInfoSection = ({character}) => {
         <div id="line"></div>
       </Col>
       <Row id='comicsInfo' lg={12}>
-        <ComicsGrid info={character.comics} string={"Comics"}/>
-        <ComicsGrid info={character.series} string={"Series"}/>
+        {/* <ComicsGrid info={character.series} string={"Series"}/> */}
+        <MySwiper info={character.comics} string={"Comics"}/> 
+        <MySwiper info={character.series} string={"Series"} />
         <ComicsGrid info={character.stories} string={"Stories"}/>
       </Row>
     </Row>
