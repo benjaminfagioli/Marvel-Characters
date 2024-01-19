@@ -8,6 +8,13 @@ const TestingFancyBox = ({image, description}) => {
         Carousel: {
           infinite: false,
         },
+        Images: {
+          Panzoom: {
+            panMode: "mousemove",
+            mouseMoveFactor: 1.1,
+            mouseMoveFriction: .72,
+            }
+        }
       }}
     >
       <a 

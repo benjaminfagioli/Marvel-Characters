@@ -80,7 +80,7 @@
   display: grid;
   place-content: center;
   background-color: #232323cd !important;
-  background: radial-gradient(circle, #000000 0%,#000000 10%,  #000000c9 20%,#00000086 50%, #0000004a 100%);
+  background: radial-gradient(circle, #000000 0%,#000000 10%,  #000000dd 20%,#000000 50%, #0000004a 100%);
 }
 #creatorsSeries{
   grid-column: span 2;
@@ -97,4 +97,34 @@
   width: 100%;
   height: 90%;
   border-radius: 3px !important;
+}
+@media screen and (width <= 992px){
+  #serieContainer{
+    margin: 0;
+  grid-template-columns: 1fr  1fr ;
+  }
+}
+@media screen and (width < 768px){
+  #serieContainer{
+    gap: 0;
+  }
+  #storiesSerie{
+    order: -1;
+    border-radius: 0 !important;
+    grid-column: span 2;
+  }
+  #yearsContainer{
+    border-radius: 0 !important;
+    grid-column: span 2;
+    background: radial-gradient(circle, #000000 0%,#000000 10%,  #000000dd 20%,#000000 50%, #00000000 100%) !important;
+  }
+  #charactersSeries{
+    order: -2;
+  }
+  #imageSerie{
+    order: -3;
+    & h1{
+      background: linear-gradient(0deg, #1f1f1f00 0%,  #000000a6 20%, #000000e6 50%, #000000 100%) !important;
+    }
+  }
 }
