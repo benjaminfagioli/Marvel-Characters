@@ -13,26 +13,43 @@
   /* background-color: #2828284c; */
   border-radius: 10px;
 }
+.fancybox__caption {
+
+  width: 600px;
+  max-width: 100%;
+  padding: 10px 0 15px !important;
+  text-wrap: pretty;
+}
+.fancybox__backdrop {
+  background-color: rgba(0, 0, 0, 0.97) !important ;
+}
 #imageSerie{
   text-align: center;
   position: relative;
   grid-column: span 2;
-  background-color: #16161673 !important;
+  background-color: #161616 !important;
   & h1{
+    position: relative;
     padding: 10px 0;
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, #1f1f1f00 0%,  #00000043 20%, #0000008f 50%, #000000ef 100%);
+    z-index: 10;
   }
-  & img{
+  & div{
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  & img{
     object-fit: cover;
     object-position: center;
     width: 100%;
     height: 100%;
     z-index: -1;
-    border-radius: 10px;
+    opacity: .7;
   }
 }
 #storiesSerie{

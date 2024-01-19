@@ -521,7 +521,7 @@ img.m-1 {
 }
 html{
   overflow-x: hidden;
-  scrollbar-gutter: stable;
+  /* scrollbar-gutter: stable; */
 }
 *::-webkit-scrollbar-thumb{
   background-color: #212121;

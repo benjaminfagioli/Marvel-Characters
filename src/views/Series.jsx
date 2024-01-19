@@ -13,6 +13,7 @@ import ComicsGrid from '../components/ComicsGrid/ComicsGrid'
 import '../styles/Series.css'
 import CharactersCardVertical from '../components/CharactersCardVertical/CharactersCardVertical'
 import CarouselVerticalCharacters from '../components/CarouselVerticalCharacters'
+import TestingFancyBox from '../components/TestingFancyBox'
 
 const Series = () => {
   const {id} = useParams()
@@ -36,8 +37,10 @@ const Series = () => {
     getComicOrSerieByID(URL, key, id, setSerie)
   },[])
   useEffect(()=> {
-    if (serie) document.title = serie.title
-    serie && getCharactersFromSerie()
+    if (serie){
+      document.title = `Series | ${serie.title.slice(0, serie.title.indexOf('('))}`
+      getCharactersFromSerie()
+    } 
   }, [serie])
   return (
     <>
@@ -46,7 +49,8 @@ const Series = () => {
     <div id="serieContainer">
       <div id="imageSerie">
         <h1>{serie.title.slice(0, serie.title.indexOf('('))}</h1>
-        <img src={serie.thumbnail.path + '.' + serie.thumbnail.extension} className='img-fluid' alt={serie.title} />
+        <TestingFancyBox image={serie.thumbnail.path + '.' + serie.thumbnail.extension} description={serie.description} />
+        {/* <img src={serie.thumbnail.path + '.' + serie.thumbnail.extension} className='img-fluid' alt={serie.title} /> */}
       </div>
       <div id='storiesSerie'>
         <ComicsGrid info={serie.stories} string={"Stories"}/>
@@ -65,14 +69,14 @@ const Series = () => {
           {/* {characters?.map(ch=><CharactersCardVertical key={ch.name} character={ch} />)} */}
         </div>
       </div>
-      <div id='creatorsSeries'>
+      {/* <div id='creatorsSeries'>
         {serie?.creators?.available != 0 &&
         <>
           <h4 className='mt-2 fw-bold'>Creators</h4>
           {serie.creators.items.map(creator=><h5 className='fs-6'>{creator.name} - <span className='fs-6'> {creator.role[0].toUpperCase() + creator.role.slice(1)}</span></h5>)}
         </>
         }
-      </div>
+      </div> */}
 
     </div>
     :

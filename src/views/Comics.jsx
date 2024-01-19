@@ -22,7 +22,7 @@ const Comic = () => {
     }
     console.log(comic);
   }
-  if (comic) document.title = comic.title
+  if (comic) document.title = `Comics | ${comic.title}`
   useEffect(()=>{
     getComicOrSerieByID(URL_COMICS, key, id, setComic)
   },[])
