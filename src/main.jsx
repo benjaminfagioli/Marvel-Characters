@@ -7,6 +7,9 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import routes from '../routes';
 import RootLayout from './components/RootLayout/RootLayout';
 import  'bootstrap-icons/font/bootstrap-icons.css'
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout/> }>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Loader from '../Loader/Loader'
-import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Col, OverlayTrigger, Spinner, Tooltip } from 'react-bootstrap'
 import getCollectionURI from '../../helpers/getCollectionURI'
 import { useNavigate } from 'react-router-dom'
 import MySwiper from '../InfoGrid'
@@ -19,7 +19,6 @@ const ComicsGrid = ({info, string}) => {
     <Col id='comicsGrid' sm={12} className='d-flex justify-content-evenly p-sm-3 p-lg-3 py-3 my-2'>
       {string1.length > 1?
       <>
-      {/* <div id={string}> */}
         <button onClick={()=>number !== 0 && setnumber(number-9)}><i className= {`bi bi-caret-left fs-2 p-2 p-md-1 ${(number !== 0) ?  'text-white' :  'text-secondary text-opacity-25'}`} ></i></button>
         {string1[0].thumbnail 
         ?
@@ -32,7 +31,8 @@ const ComicsGrid = ({info, string}) => {
           )}
         </div>
         :
-          <div className="storiesContainer">
+        
+        <div className="storiesContainer d-flex flex-column align-items-center">
 
             {string1.map(item => 
               <div className='w-100 my-2' key={item.id}>
@@ -44,14 +44,14 @@ const ComicsGrid = ({info, string}) => {
               </> 
               )}
             </div>)}
-          </div>
+        </div>
+        
         }
         <button onClick={()=>(number+9< string1.length) && setnumber(number+9)}><i className={`bi bi-caret-right fs-2 p-2 p-md-1 ${(number+9< string1.length) ?  'text-white' :  'text-secondary text-opacity-25'}`}></i></button>
-      {/* </div> */}
       </>
       
       :
-      <h5 className='d-none fw-bold'>Cargando...</h5>
+      <Spinner className='align-self-center' animation='border' variant='secondary' />
       }
       <h5 className='pb-0 pb-lg-1  w-100 text-center nameInfo'>{string}</h5>
     </Col>

@@ -6,7 +6,7 @@ const ComicHeader = ({comic}) => {
     <div id="headerComic" style={{background:`url(${comic.thumbnail.path}.${comic.thumbnail.extension})`}}>
       <div className="cape"></div>
         <Container id='headerComicContainer' className='p-0 d-flex flex-column justify-content-center position-relative'>
-        <h1 className='fw-bold mb-lg-3'>{comic?.title}</h1>
+        <h1 className='fw-bold mb-lg-3 px-2 px-md-0'>{comic?.title}</h1>
         <Row>
           <Col sm={12} md={4} lg={4} id='comicCoverContainer'>
           {comic.thumbnail.path != 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available' && <img id='comicCover' src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}></img>}

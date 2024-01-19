@@ -1,0 +1,83 @@
+#serieContainer{
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr ;
+  grid-auto-rows: 500px;
+  gap: 20px 10px ;
+  font-family: 'Inter', 'Comic Sans';
+  & h1,h2,h3,h4,h5,h6{
+    font-weight: 1000;
+  }
+}
+#serieContainer div{
+  /* background-color: #2828284c; */
+  border-radius: 10px;
+}
+#imageSerie{
+  text-align: center;
+  position: relative;
+  grid-column: span 2;
+  background-color: #16161673 !important;
+  & h1{
+    padding: 10px 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, #1f1f1f00 0%,  #00000043 20%, #0000008f 50%, #000000ef 100%);
+  }
+  & img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 10px;
+  }
+}
+#storiesSerie{
+  background-color: #2828284d !important;
+  #comicsGrid{
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    padding: 0;
+    outline: none ;
+    .storiesContainer{
+      padding: 65px 25px 0 25px ;
+    }
+    & div{
+      background: transparent;
+    }
+    & ::-webkit-scrollbar-thumb{
+      border-radius: 10px;
+    }
+    & h5{
+      top: 0;
+    }
+  }
+}
+#yearsContainer{
+  opacity: 1;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  background-color: #232323cd !important;
+  background: radial-gradient(circle, #000000 0%,#000000 10%,  #000000c9 20%,#00000086 50%, #0000004a 100%);
+}
+#creatorsSeries{
+  grid-column: span 2;
+}
+
+#charactersSeries{
+  padding: 20px 20px;
+  grid-column: span 2;
+}
+#verticalCharactersContainer{
+  height: 100%;
+}
+#carouselCharacters {
+  width: 100%;
+  height: 90%;
+  border-radius: 3px !important;
+}

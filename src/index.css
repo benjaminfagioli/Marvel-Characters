@@ -113,13 +113,7 @@ footer{
     font-weight: 400;
   }
 }
-#comicsInfo{
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 100px;
-  z-index: 1;
-  padding: 0;
-}
+
 .imgGrids{
   width: 28%;
   aspect-ratio: 1 / 1;
@@ -145,6 +139,18 @@ footer{
   padding: 0;
   flex-wrap: wrap;
 }
+#comicsInfo{
+  margin-top: 20px !important;
+  display: grid;
+  justify-content: space-between;
+  z-index: 1;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px 15px;
+  padding: 0;
+} 
+#comicsGrid.swiper{
+  aspect-ratio: 1 / 1.15;
+}
 #comicsGrid{
   overflow-x: hidden;
   box-sizing: border-box;
@@ -156,7 +162,6 @@ footer{
   display: flex;
   
   flex-direction: column;
-  aspect-ratio: 1 / 1.15;
 
   background-color: #1f1f1fc8;
   border-radius: 50px;
@@ -164,8 +169,8 @@ footer{
               -0px -0px 12px -1px #242424c8;
   align-content: start;
   border-radius: 5px; 
-  max-height: fit-content;
-  height: 500px;
+  /* max-height: fit-content;
+  height: 500px; */
   & h5{
     height: 60px;
     display:grid;
@@ -180,7 +185,7 @@ footer{
     /* width: calc(99% - 2px) !important; */
     border-bottom-left-radius: 5px;
     left: 0;
-    z-index: 10000;
+    z-index: 100;
     transition: .2s;
     transition-delay: .2s;
     border-bottom-right-radius: 5px;
@@ -203,14 +208,20 @@ footer{
     top: 50%;
     right: 0;
   }
-
+  .swiper-slide{
+    opacity: 0;
+  }
+  .swiper-slide-active {
+    opacity: 1;
+  }
 }
 #comicsGrid:nth-child(3){
+  /* grid-area: 2/1/3/-1; */
   overflow: hidden;
   padding: 0 !important;
   flex-wrap: nowrap;
   flex-direction: column !important;
-  height: fit-content !important;
+  /* height: fit-content !important; */
 
   & button{
     display: none;
@@ -227,7 +238,8 @@ footer{
   }
 }
 .storiesContainer{
-  height: fit-content;
+  min-height: 100px !important;
+  max-height: 700px;
   /* flex-grow: 1; */
   /* height: 130%; */
   overflow: auto;
@@ -281,30 +293,63 @@ footer{
   max-width: 300px;
   max-height: 500px;
 }
-
-.swiper{
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.imgCharactersComic{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 .spinner-border{
   position: absolute;
   top: calc(50% - 1rem );
+}
+.swiper{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .swiper-slide {
   display: flex !important;
   align-content: start;
   justify-content: space-around !important;
   flex-wrap: wrap !important;
-  opacity: 0;
-}
-.swiper-slide-active {
-  opacity: 1;
 }
 .swiper-button-next,
 .swiper-button-prev {
   color: #cdcdcd !important;
   text-shadow: 2px 0px 4px black, -2px 0px 4px black, 0px -2px 4px black, 0px 2px 4px black;
 }
+.swiper-scrollbar{
+  background: #000 !important;
+  box-shadow: 0 0 10px  #ffffff50;
+  bottom: -1px !important;
+  .swiper-scrollbar-drag{
+    background: #353535;
+  }
+}
+.swiper-pagination{
+  width: 100%;
+  opacity: .03;
+  background: #000000;
+  bottom: 0 !important;
+  & span{
+    width: 10px;
+    height: 10px;
+    background: #fcfcfc;
+  }
+  .swiper-pagination-bullet-active{
+    background: url('./assets/768px-Captain_America_Shield.svg.png');
+    background-position: center;
+    background-size: contain;
+    scale: 1.7;
+  }
+}
+.swiper-pagination:hover{
+    opacity: 1 !important;
+}
+#comicsGrid button{
+  display: none !important;
+}
+
 @keyframes moveDown {
   to{
     background-color: #0b0b0b !important;
@@ -314,6 +359,16 @@ footer{
   }
 }
 @media screen and (width<=992px) {
+  #comicsInfo{
+
+    grid-template-columns: repeat(4, 1fr);
+    #comicsGrid.swiper{
+      grid-column: span 2 !important;
+    }
+    #comicsGrid:nth-child(3){
+      grid-column: 1/-1;
+    }
+  }
   #headerComic{
     height: 60px;
     align-content: space-between !important;
@@ -327,24 +382,26 @@ footer{
   #headerComicContainer{
     margin-top: 10px;
   }
+  .swiper-pagination {
+    display: none;
+  }
 }
 @media screen and (width>=992px) {
   #imgCharacterView{
     object-fit: fill !important;
   }
-  
+  #comicsGrid:nth-child(3){
+      aspect-ratio: 1 / 1.15;
+  }
 }
 @media screen and (width>=768px) {
   #mainContainer{
     padding-bottom: 150px;
   }
   #comicsGrid{
-    width: 49%;
     height: fit-content;
   }
-  #comicsGrid:nth-child(3){
-    width: 100%;
-  }
+
   #headerComic{
     display: grid;
     overflow: hidden;
@@ -352,6 +409,9 @@ footer{
   }
   #headerComicContainer{
     height: 100%;
+  }
+  .imgCharactersComic{
+    justify-content: start;
   }
 }
 .comic-description{
@@ -376,6 +436,9 @@ img.m-1 {
   border-radius: 2px;
 }
 @media screen and (width>=992px) {
+  .swiper-scrollbar{
+    display: none;
+  }
   footer{
     max-height: 200px;
   }
@@ -385,9 +448,6 @@ img.m-1 {
   #badgesContainer {
     max-width: fit-content ;
     justify-content: start;
-  }
-  #comicsGrid{
-    width: 32.6% !important;
   }
   /* .swiper{
     overflow: visible !important;
@@ -423,7 +483,21 @@ img.m-1 {
     min-height: 250px;
   }
 }
-@media screen and (width< 768px) {
+@media screen and (width < 768px) {
+  .swiper-button-next,
+  .swiper-button-prev{
+    display: none !important;
+  }
+  .storiesContainer{
+    max-height: 700px !important;
+  }
+  #comicsInfo{
+    gap: 0;
+    grid-template-columns:  1fr;
+    #comicsGrid:nth-child(3){
+      aspect-ratio: auto !important;
+    }
+  }
   #headerComic{
     position: relative;
     background: none !important;

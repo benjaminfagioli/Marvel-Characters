@@ -17,7 +17,7 @@ const MySwiper  = ({info, string}) => {
   const [number, setnumber] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
   const [offset, setOffset] = useState(0)
-  console.log((info));
+  // console.log((info));
   // console.log(info);
   const navigate = useNavigate()
   // console.log(string, info);
