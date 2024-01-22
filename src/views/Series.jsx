@@ -46,7 +46,8 @@ const Series = () => {
   }, [serie])
   return (
     <>
-    {bgResponsive ? <div id='myBgc' style={{background:'#070707'}} />: <ParticlesBackground />}
+    {/* {bgResponsive ? <div id='myBgc' style={{background:'#070707'}} />: <ParticlesBackground />} */}
+    <ParticlesBackground />
     {serie?
     <div id="serieContainer">
       <div id="imageSerie">

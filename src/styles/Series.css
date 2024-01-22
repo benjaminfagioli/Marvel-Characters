@@ -11,7 +11,7 @@
 }
 #serieContainer div{
   /* background-color: #2828284c; */
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 .fancybox__caption {
 
@@ -55,6 +55,7 @@
   }
 }
 #storiesSerie{
+  border-radius: 10px;
   background-color: #2828284d !important;
   #comicsGrid{
     margin: 0 !important;
@@ -77,6 +78,7 @@
   }
 }
 #yearsContainer{
+  border-radius: 10px;
   opacity: 1;
   z-index: 10;
   display: grid;
