@@ -48,7 +48,7 @@
 
 .formControl {
   width: 35ch;
-  margin: 20px 0 10px 0;
+  margin: 40px 0 10px 0;
   position: relative;
   --width-of-input: 300px;
 }

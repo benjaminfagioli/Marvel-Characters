@@ -2,6 +2,7 @@ import React from 'react'
 import {verticalCharacter} from './CharactersCardVertical.module.css'
 import { useNavigate } from 'react-router-dom'
 const CharactersCardVertical = ({character}) => {
+  // console.log(character);
   const navigate = useNavigate()
   return (
     <div className={verticalCharacter}>

@@ -16,7 +16,6 @@ const CharacterInfoSection = ({character}) => {
         <div id="line"></div>
       </Col>
       <Row id='comicsInfo' lg={12}>
-        {/* <ComicsGrid info={character.series} string={"Series"}/> */}
         <MySwiper info={character.comics} string={"Comics"}/> 
         <MySwiper info={character.series} string={"Series"} />
         <ComicsGrid info={character.stories} string={"Stories"}/>

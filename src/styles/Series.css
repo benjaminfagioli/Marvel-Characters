@@ -1,5 +1,5 @@
 #serieContainer{
-  margin-top: 30px;
+  margin-top: 45px;
   display: grid;
   grid-template-columns: 1fr 150px 1fr ;
   grid-auto-rows: 500px;
@@ -28,9 +28,11 @@
   position: relative;
   grid-column: span 2;
   background-color: #161616 !important;
+  overflow: hidden;
+  border-radius: 10px !important;
   & h1{
     position: relative;
-    padding: 10px 0;
+    padding: 10px;
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, #1f1f1f00 0%,  #00000043 20%, #0000008f 50%, #000000ef 100%);
     z-index: 10;
@@ -100,23 +102,26 @@
 }
 @media screen and (width <= 992px){
   #serieContainer{
-    margin: 0;
+    margin: 20px 0 0 0; 
   grid-template-columns: 1fr  1fr ;
   }
 }
 @media screen and (width < 768px){
   #serieContainer{
+    margin-top: 10px;
     gap: 0;
+    grid-template-rows: 400px 550px 300px 350px;
   }
   #storiesSerie{
-    order: -1;
     border-radius: 0 !important;
     grid-column: span 2;
+    margin-bottom: 35px;
   }
   #yearsContainer{
     border-radius: 0 !important;
+    order: -1;
     grid-column: span 2;
-    background: radial-gradient(circle, #000000 0%,#000000 10%,  #000000dd 20%,#000000 50%, #00000000 100%) !important;
+    background: radial-gradient(circle, #b0b0b01e 0%, #7676761e 15%, #7a7a7a1b 17%, #ffffff00 67%) !important;
   }
   #charactersSeries{
     order: -2;

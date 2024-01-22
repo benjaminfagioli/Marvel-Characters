@@ -6,11 +6,13 @@
   border-radius: 2px !important;
   border-bottom-left-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
+  cursor: grab;
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: .5s;
+    cursor: grab;
   }
   & img:hover{
     scale: 1.04;

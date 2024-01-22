@@ -19,15 +19,17 @@ const Series = () => {
   const {id} = useParams()
   const [serie, setSerie] = useState(null)
   const [characters, setCharacters] = useState(null)
-  console.log(serie?.description);
+  // console.log(serie?.description);
   // serie && console.log(serie.title.replace(serie.title.slice(serie.title.indexOf(' ('), serie.title.indexOf(')')+1),''))
+  const bgResponsive = window.matchMedia('(max-width: 767px)').matches
+  console.log(bgResponsive);
   const getCharactersFromSerie =  async()=>{
     let aux = []
     try {
       const data = await fetch(`${serie?.characters?.collectionURI}${key}&limit=40`)
       const results = await data.json()
       let resultsFiltered = results.data.results.filter(ch=> ch?.thumbnail?.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available' && ch?.thumbnail?.extension !== 'gif')
-      console.log(resultsFiltered)
+      // console.log(resultsFiltered)
       setCharacters(resultsFiltered)
     } catch (error) {
       console.log(error.message);
@@ -44,7 +46,7 @@ const Series = () => {
   }, [serie])
   return (
     <>
-    <ParticlesBackground />
+    {bgResponsive ? <div id='myBgc' style={{background:'#070707'}} />: <ParticlesBackground />}
     {serie?
     <div id="serieContainer">
       <div id="imageSerie">
@@ -66,7 +68,6 @@ const Series = () => {
         <h4>Characters</h4>
         <div id="verticalCharactersContainer">
           <CarouselVerticalCharacters characters={characters} />
-          {/* {characters?.map(ch=><CharactersCardVertical key={ch.name} character={ch} />)} */}
         </div>
       </div>
       {/* <div id='creatorsSeries'>
