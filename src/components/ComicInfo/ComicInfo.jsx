@@ -16,7 +16,7 @@ const ComicInfo = ({comic, characters}) => {
       <h4 className='fw-bold'>Characters</h4>
       <div className="imgCharactersComic">
         {characters?.map(character=>{
-          if (character.thumbnail.path != 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available') {
+          if (character.thumbnail.path != 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available' && character.thumbnail.extension !== 'gif') {
             return(
               <OverlayTrigger overlay={<Tooltip>{character.name}</Tooltip>}>
                 <img width={'150px'} onClick={()=>navigate(`/character/${character.id}`)} height={'150px'} className='m-1' src={`${character.thumbnail.path}.${character.thumbnail.extension}`}></img>

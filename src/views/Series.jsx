@@ -18,30 +18,15 @@ import TestingFancyBox from '../components/TestingFancyBox'
 const Series = () => {
   const {id} = useParams()
   const [serie, setSerie] = useState(null)
-  const [characters, setCharacters] = useState(null)
-  // console.log(serie?.description);
   // serie && console.log(serie.title.replace(serie.title.slice(serie.title.indexOf(' ('), serie.title.indexOf(')')+1),''))
   const bgResponsive = window.matchMedia('(max-width: 767px)').matches
-  console.log(bgResponsive);
-  const getCharactersFromSerie =  async()=>{
-    let aux = []
-    try {
-      const data = await fetch(`${serie?.characters?.collectionURI}${key}&limit=40`)
-      const results = await data.json()
-      let resultsFiltered = results.data.results.filter(ch=> ch?.thumbnail?.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available' && ch?.thumbnail?.extension !== 'gif')
-      // console.log(resultsFiltered)
-      setCharacters(resultsFiltered)
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  // console.log(bgResponsive);
   useEffect(()=>{
     getComicOrSerieByID(URL, key, id, setSerie)
   },[])
   useEffect(()=> {
     if (serie){
       document.title = `Series | ${serie.title.slice(0, serie.title.indexOf('('))}`
-      getCharactersFromSerie()
     } 
   }, [serie])
   return (
@@ -68,7 +53,7 @@ const Series = () => {
       <div id='charactersSeries'>
         <h4>Characters</h4>
         <div id="verticalCharactersContainer">
-          <CarouselVerticalCharacters characters={characters} />
+          <CarouselVerticalCharacters collection={serie?.characters?.collectionURI} />
         </div>
       </div>
       {/* <div id='creatorsSeries'>

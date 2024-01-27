@@ -9,12 +9,31 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
 import CharactersCardVertical from './CharactersCardVertical/CharactersCardVertical';
+import { useEffect, useState } from 'react';
 
-const CarouselVerticalCharacters = ({characters}) => {
+const key = import.meta.env.VITE_MY_KEY
+
+const CarouselVerticalCharacters = ({collection}) => {
+  
+  const [characters, setCharacters] = useState(null)
+  const getCharactersFromSerie =  async()=>{
+    try {
+      const data = await fetch(`${collection}${key}&limit=40`)
+      const results = await data.json()
+      const resultsFiltered = results.data.results.filter(ch=> ch?.thumbnail?.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available' && ch?.thumbnail?.extension !== 'gif')
+      // console.log(resultsFiltered)
+      setCharacters(resultsFiltered)
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  useEffect(()=> {
+    getCharactersFromSerie()
+  }, [])
+
   const slidesPerViewResponsive = window.matchMedia('(max-width: 767px)').matches ? 2 : 3
-  // console.log(slidesPerViewResponsive);
   console.log(slidesPerViewResponsive <= 2 ? true : false);
-  // console.log(window.matchMedia('(max-width: 600px)').matches);
+
   return (
     <Swiper
       id='carouselCharacters'

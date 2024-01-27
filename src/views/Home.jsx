@@ -45,7 +45,6 @@ function Home() {
                   d={d}
                   name={ch.name} 
                   img={`${ch.thumbnail.path}.${ch.thumbnail.extension}`} 
-                  description={ch.description}
                   id={ch.id}
                 />
               )})  

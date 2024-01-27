@@ -9,7 +9,7 @@ import RootLayout from './components/RootLayout/RootLayout';
 import  'bootstrap-icons/font/bootstrap-icons.css'
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
+import 'atropos/atropos.css'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout/> }>

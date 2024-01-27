@@ -1,14 +1,15 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import ErrorDialog from '../ErrorDialog/ErrorDialog'
+import TestingFancyBox from '../TestingFancyBox'
 
 const CharacterHeader = ({character}) => {
   return (
     <>
-      <h1 className='z-4 position-relative' id='characterTitle'>{character.name}</h1>
+      <h1 className='z-4 position-relative fw-bold' id='characterTitle'>{character.name}</h1>
       <Row className='align-items-center p-0'>
         <Col className='p-0' lg={5}>
-          <img id='imgCharacterView' height={'500px'} width={'100%'} src={character.thumbnail.path+'.' +character.thumbnail.extension} alt="" className='mb-3 object-fit-cover z-4 position-relative'/>
+          <TestingFancyBox id='imgCharacterView' image={character.thumbnail.path+'.' +character.thumbnail.extension} />
         </Col>
         <Col lg={7}>
           {character.description != '' && character.description!= ' '

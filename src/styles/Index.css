@@ -1,0 +1,16 @@
+#indexContainer{
+  padding-top: 80px;
+}
+.atropos-inner {
+  display: flex !important;
+  justify-content: stretch;
+  border-radius: 20px;
+  width: 700px !important;
+
+}
+.atropos{
+  max-width: 700px;
+}
+#chDemo{
+  width: 100%;
+}

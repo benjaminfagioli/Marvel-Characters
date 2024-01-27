@@ -1,7 +1,7 @@
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import React from 'react'
 import Fancybox from "./Fancybox";
-const TestingFancyBox = ({image, description}) => {
+const TestingFancyBox = ({image, description, id}) => {
   return (
     <Fancybox
       options={{
@@ -22,7 +22,7 @@ const TestingFancyBox = ({image, description}) => {
         href={image}
         data-caption={description}
         >
-        <img src={image} />
+        <img id={id} src={image} />
       </a>
     </Fancybox>
   )

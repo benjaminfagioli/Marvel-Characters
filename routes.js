@@ -1,6 +1,7 @@
 import Character from "./src/views/Character";
 import Comic from "./src/views/Comics";
 import Home from "./src/views/Home";
+import Index from "./src/views/Index";
 import Series from "./src/views/Series";
 
 const routes = [{
@@ -15,6 +16,9 @@ const routes = [{
 },{
   Path:'/series/:id',
   Element: Series
+},{
+  Path:'/index',
+  Element: Index
 }
 ]
 export default routes
