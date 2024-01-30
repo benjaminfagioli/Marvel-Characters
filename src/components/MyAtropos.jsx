@@ -5,9 +5,9 @@ const MyAtropos = ({children}) => {
   return (
     <Atropos
     className='my-atropos'
-    activeOffset={100}
+    activeOffset={50}
     rotateXInvert={false}
-    alwaysActive={true}
+    alwaysActive={false}
     shadowScale={1}
     stretchZ={500}
     duration={200}

@@ -1,16 +1,41 @@
 #indexContainer{
-  padding-top: 80px;
+  padding-top: 20px;
 }
 .atropos-inner {
   display: flex !important;
-  justify-content: stretch;
   border-radius: 20px;
-  width: 700px !important;
+}
+
+.atropos{
+  max-width: 100%;
+}
+#atroposContainer{
+  display: flex;
+  justify-content: center;
+    .atropos{
+    max-width: 700px;
+    width: 650px !important;
+    aspect-ratio: 5/2.5 !important;
+    max-width: 100%;
+  }
+}
+#indexGridsContainer{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  height: 500px;
+  #comicsGrid{
+    height: auto;
+    box-shadow: none;
+  }
 
 }
-.atropos{
-  max-width: 700px;
-}
-#chDemo{
-  width: 100%;
+@media screen and (width< 768px) {
+  #indexGridsContainer{
+   flex-wrap: wrap;    
+  }
+  #indexGridsContainer{
+    height: auto;
+  }
 }

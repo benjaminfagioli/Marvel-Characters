@@ -31,7 +31,7 @@ function Home() {
         <Loader/>
         :
         <>
-        <Row className='justify-content-center'>
+        <div id='gridHomeCharacters' className='d-grid'>
           {characters != []
           ?
             characters.map(ch => {
@@ -51,7 +51,7 @@ function Home() {
           :
             <h1>Check out your network connection </h1>
           }
-        </Row>
+        </div>
         <div className='d-flex justify-content-center mt-3'>
           <MyPagination params={params} setLoading={setLoading} setParams={setParams} data={[characters,count]}/>
         </div>

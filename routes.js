@@ -6,7 +6,7 @@ import Series from "./src/views/Series";
 
 const routes = [{
   Path:'/',
-  Element: Home
+  Element: Index
 },{
   Path:'/character/:id',
   Element:Character
@@ -17,8 +17,8 @@ const routes = [{
   Path:'/series/:id',
   Element: Series
 },{
-  Path:'/index',
-  Element: Index
+  Path:'/home',
+  Element: Home
 }
 ]
 export default routes

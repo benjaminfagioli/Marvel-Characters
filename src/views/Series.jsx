@@ -18,6 +18,7 @@ import TestingFancyBox from '../components/TestingFancyBox'
 const Series = () => {
   const {id} = useParams()
   const [serie, setSerie] = useState(null)
+  console.log(serie);
   // serie && console.log(serie.title.replace(serie.title.slice(serie.title.indexOf(' ('), serie.title.indexOf(')')+1),''))
   const bgResponsive = window.matchMedia('(max-width: 767px)').matches
   // console.log(bgResponsive);

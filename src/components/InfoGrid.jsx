@@ -17,10 +17,9 @@ const MySwiper  = ({info, string}) => {
   const [number, setnumber] = useState(0)
   const [isLoading, setIsLoading] = useState(false)
   const [offset, setOffset] = useState(0)
-  // console.log((info));
   // console.log(info);
   const navigate = useNavigate()
-  // console.log(string, info);
+  // console.log(string1, info);
   useEffect(()=>{
     getCollectionURI(info, string, setstring1,offset, setIsLoading )
   },[offset])
@@ -91,8 +90,8 @@ const MySwiper  = ({info, string}) => {
         <span className='fs-6'> {Math.ceil((offset + 9 )/ 10)}/{Math.ceil(info.available / 9)} </span>
         :
         <span className='fs-6'> {Math.ceil((offset)/ 20) + 1}/{Math.ceil(info.available / 20) || 1} </span> 
-      
-      }</h5>
+      }
+      </h5>
     </Swiper>
   );
 };

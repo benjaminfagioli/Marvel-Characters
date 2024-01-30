@@ -12,10 +12,17 @@ const MyNavbar = () => {
         <div id={list}>
           <ul className='fs-5'>
             <a onClick={()=>{
-              navigate('/')
+              navigate('/home')
               setParams({})
             }}><li>Home</li></a>
-            {/* <li>Contact us</li> */}
+            <a onClick={()=>{
+              navigate('/')
+              setParams({})
+            }}><li>Info</li></a>
+            {/* <a onClick={()=>{
+              navigate('/')
+              setParams({})
+            }}><li>About me</li></a> */}
           </ul>
         </div>
       </nav>

@@ -6,11 +6,12 @@ import TestingFancyBox from '../TestingFancyBox';
 
 const CardCharacter = ({name, img, id, d}) => {
   const navigate = useNavigate()
+  console.log(id);
   const handleClick = (id)=>{
-    navigate(`character/${id}`)
+    navigate(`/character/${id}`)
   }
   return (
-    <Card className={`${cardCharacter} ${d} col-sm-10 col-lg-5 mx-3 my-3`} >
+    <Card className={`${cardCharacter} ${d}`} >
       <Card.Body className={body}>
       <TestingFancyBox id={`${name}`} image={img} />
       {/* <img id={`${name}`} src={img} /> */}

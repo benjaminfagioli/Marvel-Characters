@@ -2,12 +2,14 @@ const key = import.meta.env.VITE_MY_KEY
 const URL_BASE = import.meta.env.VITE_URL_BASE
 
 const getCollectionURI = async (info, string, setstring1, offset, setIsLoading)=>{
+  
   let aux= []
   if (string === 'Comics') {
     setIsLoading(true)
     try {
       const data = await fetch(`${info.collectionURI}${key}&limit=10&offset=${offset}`)
       const results = await data.json()
+      console.log(results);
       results.data.results.forEach(result => {
         result.thumbnail?.path != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" && aux.push(result)
       })
@@ -15,7 +17,7 @@ const getCollectionURI = async (info, string, setstring1, offset, setIsLoading)=
       console.log(error.message);
     } finally{
       setIsLoading(false)
-      // console.log(aux);
+      console.log(aux);
       setstring1(aux)
     }
   } else if (string === 'Series') {
