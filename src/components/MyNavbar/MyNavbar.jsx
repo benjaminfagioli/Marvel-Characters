@@ -19,10 +19,10 @@ const MyNavbar = () => {
               navigate('/')
               setParams({})
             }}><li>Info</li></a>
-            {/* <a onClick={()=>{
-              navigate('/')
+            <a onClick={()=>{
+              navigate('/aboutMe')
               setParams({})
-            }}><li>About me</li></a> */}
+            }}><li>About me</li></a>
           </ul>
         </div>
       </nav>

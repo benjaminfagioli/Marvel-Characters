@@ -7,6 +7,7 @@ import getSingleCharacter from '../helpers/getSingleCharacter'
 import MySwiper from '../components/InfoGrid'
 
 const Index = () => {
+  const mediaQuerie = window.matchMedia('(max-width:768px)').matches
   const [chdemo, setChdemo] = useState(null)
   console.log(chdemo?.comics);
   useEffect(()=>{
@@ -23,21 +24,30 @@ const Index = () => {
               <h5> Why don't you try? Have fun!</h5>
             </div>
             <div id="atroposContainer">
+
             <MyAtropos>
               <CardCharacter name={chdemo?.name} img={`${chdemo?.thumbnail.path}.${chdemo?.thumbnail.extension}`} id={chdemo?.id} />
             </MyAtropos>
             </div>
             <div id='indexGridsContainer'>
+            {mediaQuerie ? 
+            <>
             <MyAtropos>
-            <MySwiper info={chdemo?.comics} string={'Comics'} />
-
+              <MySwiper info={chdemo?.comics} string={'Comics'} />
             </MyAtropos>
             <MyAtropos>
-            <MySwiper info={chdemo?.series} string={'Series'} />
-
+              <MySwiper info={chdemo?.series} string={'Series'} />
             </MyAtropos>
+            </>
+            :
+            <>
+              <MySwiper info={chdemo?.comics} string={'Comics'} />
+              <MySwiper info={chdemo?.series} string={'Series'} />
+            </>
+          }
+
             </div>
-            <h6>Note: If you notice that some item (comic, serie, character) are missing, it's because i filtered only items who have a own image.</h6>
+            <h6>Note: If you notice that some item (comic, serie, character) is missing, it's because i filtered only items who have a own image.</h6>
           </div>
       }
 
