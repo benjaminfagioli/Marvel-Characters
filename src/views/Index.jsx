@@ -18,8 +18,8 @@ const Index = () => {
     <div>
       <div id="myBgc"></div>
       {chdemo && (
-        <div id="indexContainer">
-          <div className="px-2">
+        <div id="indexContainer" className="px-3 pb-2">
+          <div>
             <h4>
               Welcome to my{" "}
               <span className="text-danger">Marvel's Characters</span> page!
